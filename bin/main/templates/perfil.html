@@ -17,14 +17,14 @@
 	 	<!-- Barra Menu e Head -->
 		<div class="w3-top">
 			<div class="w3-bar w3-light-blue" id="myNavbar">
-			    <a href="index.html"><img class="w3-image w3-bar-item" 
+			    <a href="/"><img class="w3-image w3-bar-item" 
 			    src="_imagens/logo.png" style="width:10%"></a>
 			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
 				<div class="w3-dropdown-hover w3-right w3-light-blue">
                   <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
                   <div class="w3-dropdown-content w3-bar-block w3-border">
-                    <a href="perfil.html" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
-                    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+                    <a th:href="@{/perfil}" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                    <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
                   </div> 
             	</div>
             <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
@@ -34,8 +34,8 @@
 	
 	<!-- Breadcrumbs -->
 	<ul class="breadcrumb" style="margin-top:6%">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="user.html">Usuário</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a th:href="@{/user}" >Usuário</a></li>
       <li>Pefil</li>
 	</ul>
 
@@ -55,8 +55,8 @@
 		        	<p><input class="w3-input" type="text" placeholder="Email" name="usuario"></p>
 		      	</div>
 		        <div class="w3-margin-top">
-		    	  	<a href="user.html" class="w3-right w3-button w3-blue w3-hover-light-blue w3-round-large" type="submit">Salvar Alterações</a>
-		    	  	<a href="user.html" type="button" class="w3-right w3-button w3-text-red w3-hover-red w3-round-large w3-margin-right">Cancelar</a><br>
+		    	  	<a th:href="@{/user}" class="w3-right w3-button w3-blue w3-hover-light-blue w3-round-large" type="submit">Salvar Alterações</a>
+		    	  	<a th:href="@{/user}"  type="button" class="w3-right w3-button w3-text-red w3-hover-red w3-round-large w3-margin-right">Cancelar</a><br>
 		        </div> <br>          
 			    </div>
 			  </form>

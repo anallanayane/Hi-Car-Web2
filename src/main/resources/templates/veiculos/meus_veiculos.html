@@ -14,30 +14,30 @@
 		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	 	
-	 	<!-- Barra Menu e Head -->
-		<div class="w3-top">
-			<div class="w3-bar w3-light-blue" id="myNavbar">
-			    <a href="index.html"><img class="w3-image w3-bar-item" 
-			    src="_imagens/logo.png" style="width:10%"></a>
-			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
-			<div class="w3-text-white w3-display-right w3-margin-bottom">
-			   	<a href="#home" class="w3-bar-item w3-button w3-hover-blue w3-round-large">Home</a>
-		     	<a href="#sobre" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Sobre</a>
-         		<a href="#portfolio" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Portfolio</a>
-			    <a href="#contato" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Contato</a>
-	     		<a href="login.html" class="w3-bar-item w3-blue w3-button w3-hover-blue w3-round-large w3-margin-right">Login</a>
-	       	    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-round-large w3-margin-right"> 
-          		<i class="fa fa-search w3-color-blue"></i> 
-		     	</a>
-			 </div>
-			</div>
-		</div>
+	 	<!-- Barra de Menu e Head-->
+        <div class="w3-top">
+          <div class="w3-bar w3-light-blue" id="myNavbar">
+            <a href="/"><img class="w3-image w3-bar-item" 
+            src="_imagens/logo.png" style="width:10%"></a>
+            <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+
+            <div class="w3-dropdown-hover w3-right w3-light-blue">
+                <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a th:href="@{/perfil}" class= "w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+                </div> 
+            </div>
+
+            <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>    
+          </div>
+        </div>
 	</head>	
 	
 	<!--Breadcrumbs -->
     <ul class="breadcrumb" style="margin-top:-3%">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="user.html">Usuário</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a th:href="@{/user}">Usuário</a></li>
         <li>Meus Veículos</li>
     </ul>
 
@@ -49,7 +49,7 @@
             <a href="user.html" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
         
             <i class="material-icons w3-center w3-left" style="font-size:100px; margin-top:3%; margin-left:35%; margin-bottom:5%">directions_car</i>
-             <h6 style="margin-left:50%; margin-top:5%">Adicionar novo veículo<a style="text-decoration: none; margin-top:3%" href="cadastrarveiculo.html" class="material-icons w3-text-blue w3-xxlarg">add_circle</a></h6>
+             <h6 style="margin-left:50%; margin-top:5%">Adicionar novo veículo<a style="text-decoration: none; margin-top:3%" th:href="@{/cadastros/cadVeiculo}" class="material-icons w3-text-blue w3-xxlarg">add_circle</a></h6>
 
             <div class="w3-content w3-card" style="width:500px">
                 <ul style="list-style-type: none; padding: 25px; margin-top:10%">

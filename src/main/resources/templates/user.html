@@ -24,14 +24,14 @@
         <div class="w3-dropdown-hover w3-right w3-light-blue">
         	<i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
               <div class="w3-dropdown-content w3-bar-block w3-border">
-                <a href="@{perfil/perfil}" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                <a th:href="@{/perfil}" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
                 <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
               </div> 
         </div>
 
         <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
         
-        <a href="@{veiculos/meus_veiculos}" class="w3-btn w3-blue w3-round-large w3-right" style="max-width:15%; margin-top:2%">Meus Veículos<i class="w3-right material-icons">
+        <a th:href="@{/veiculos/meus_veiculos}" class="w3-btn w3-blue w3-round-large w3-right" style="max-width:15%; margin-top:2%">Meus Veículos<i class="w3-right material-icons">
         directions_car</i></a>
         
       </div>
