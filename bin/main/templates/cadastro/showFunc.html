@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>Funcionários Cadastrados</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<h1>Funcionário Cadastrado</h1>
+			<hr />
+			<div class="form-group"> 
+				<label for="nome">Nome: </label>  
+				<span th:text="${funcionario.nome}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="cpf">CPF: </label>  
+				<span th:text="${funcionario.cpf}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="endereco">Endereço: </label>  
+				<span th:text="${funcionario.endereco}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="telefone">Telefone: </label>  
+				<span th:text="${funcionario.telefone}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="matricula">Matrícula: </label>  
+				<span th:text="${funcionario.matricula}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="empresa">Empresa: </label>  
+				<span th:text="${funcionario.empresa}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="funcao">Função: </label>  
+				<span th:text="${funcionario.funcao}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="salario">Salário: </label>  
+				<span th:text="${funcionario.salario}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="email">Email: </label>  
+				<span th:text="${funcionario.email}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="email">Email: </label>  
+				<span th:text="${funcionario.email}"></span> 
+			</div> 
+					
+			<a th:href="@{/cadastro/cadFuncionario}" class="btn btn-primary" >Voltar</a> 
+			<a th:href="@{/cadastro/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a>
+			<a th:href="${funcionario.id +'/delete'}" class="btn btn-danger">Excluir</a>
+			
+		</div>
+	</body>
+</html>

@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ import com.example.service.VeiculoService;
 
 
 @Controller
-@RequestMapping("/cadastros")
+@RequestMapping("/cadastro")
 public class CadastroController {
 
 	private static final String MSG_SUCESS_INSERT = "Cadastro Realizado com Sucesso!";
@@ -45,23 +46,34 @@ public class CadastroController {
 	
 	@Autowired
 	private ServicoService servicoService;
-	
-	/* @GetMapping
-	public String cadastro(Model model) {
+
+	@GetMapping
+	public String index(Model model) {
 		List<Pessoa> all = pessoaService.findAll();
 		model.addAttribute("listPessoa", all);
-		return "cadastro/cadastro_pessoa";
+		model.addAttribute("");
+		return "cadastro/index";
 	}
-	
+
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
 			Pessoa pessoa = pessoaService.findOne(id).get();
 			model.addAttribute("pessoa", pessoa);
 		}
-		return "cadastro/cadastro_pessoa";
-	} */
-
+		return "cadastro/show";
+	}
+	
+	@GetMapping("/showFunc/{id}")
+	public String func(Model model, @PathVariable("id") Integer id) {
+		if (id != null) {
+			Funcionario funcionario = funcionarioService.findOne(id).get();
+			model.addAttribute("funcionario", funcionario);
+		}
+		return "cadastro/showFunc";
+	}
+	
+	
 	@GetMapping(value = "/cadPessoa")
 	public String create(Model model, @ModelAttribute Pessoa entityPessoa) {
 		return "cadastro/cadastro_pessoa";

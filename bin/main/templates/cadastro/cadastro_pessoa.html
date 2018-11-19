@@ -15,7 +15,7 @@
 		<h1 th:if="${pessoa.id == null}">Cadastre-se</h1>
 		<h1 th:if="${pessoa.id != null}">Editar Cadastro</h1>
 		<hr />
-		<form th:action="@{/cadastros}" th:method="@{${pessoa.id == null} ? 'post' : 'put'}"
+		<form th:action="@{/cadastro}" th:method="@{${pessoa.id == null} ? 'post' : 'put'}"
 			th:object="${pessoa}">
 			<input type="hidden" th:field="*{id}" /> 
 	
@@ -50,7 +50,7 @@
 				</div> 
 				
 				
-			<a th:href="@{/user}" type="submit" class="btn btn-success">Cadastrar</button>
+			<button type="submit" class="btn btn-success">Cadastrar</button>
 			<a th:href="@{/login/login}" class="btn btn-default">Cancelar</a>
 		</form>
 	</div>
