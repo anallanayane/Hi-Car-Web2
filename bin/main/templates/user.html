@@ -6,31 +6,38 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	    <meta name="description" content="Sistema de Concessionária Pós-Venda" />
-	    <meta name="author" content="Analla Nayane" />
-	     <title>Hi-Car</title>
+	    <meta name="author" content="Analla Nayane e Luís Eduardo" />
+	    <title>Hi-Car</title>
 	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	 	
-	 	<!-- Barra Menu e Head -->
-		<div class="w3-top">
-			<div class="w3-bar w3-light-blue" id="myNavbar"> 
-			    <a href="/"><img th:src="@{/logo.png}" class="w3-image w3-bar-item" style="width:10%"></a>
-			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
-			<div class="w3-text-white w3-display-right w3-margin-bottom">
-			   	<a href="#home" class="w3-bar-item w3-button w3-hover-blue w3-round-large">Home</a>
-		     	<a href="#sobre" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Sobre</a>
-         		<a href="#portfolio" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Portfolio</a>
-			    <a href="#contato" class="w3-bar-item w3-button w3-hover-blue w3-round-large"> Contato</a>
-	     		<a th:href="@{/cadastros/cadPessoa}"class="w3-bar-item w3-blue w3-button w3-hover-blue w3-round-large w3-margin-right">Login</a>
-	       	    <a href="#" class="w3-bar-item w3-button w3-hover-blue w3-round-large w3-margin-right"> 
-          		<i class="fa fa-search w3-color-blue"></i> 
-		     	</a>
-			 </div>
-			</div>
-		</div>
+	 	<!-- Barra de Menu e Head-->
+    	<div class="w3-top">
+      	<div class="w3-bar w3-light-blue" id="myNavbar">
+        	<a href="/"><img class="w3-image w3-bar-item" 
+        	th:src="@{_imagens/logo.png}" style="width:10%"></a>
+        	<span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+
+        <div class="w3-dropdown-hover w3-right w3-light-blue">
+        	<i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
+              <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a href="@{perfil/perfil}" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+              </div> 
+        </div>
+
+        <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
+        
+        <a href="@{veiculos/meus_veiculos}" class="w3-btn w3-blue w3-round-large w3-right" style="max-width:15%; margin-top:2%">Meus Veículos<i class="w3-right material-icons">
+        directions_car</i></a>
+        
+      </div>
+    </div>
+  </head>
+	 	
 	</head>	
 	
 	<body>
@@ -70,7 +77,7 @@
 		  </div>
 		</div>
 		
-	<!-- Inclusão das funções Java Scripts da página -->
+		    <!-- Inclusão das funções Java Scripts da página -->
     <script language="javascript" src="_javascript/funcoes.js"></script>
 
 	  <!-- Container (About Section) -->

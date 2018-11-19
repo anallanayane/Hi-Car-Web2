@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+	
+	<head>
+		<title>Login</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="Página de Login - Hi-Car" />
+		<meta name="author" content="Analla Nayane" />
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="_css/login-cadastro.css" type="text/css"/>
+		
+		<div class="w3-top">
+			<div class="w3-bar w3-light-blue" id="myNavbar">
+				<a href="index.html"><img class="w3-image w3-bar-item" 
+			    src="_imagens/logo.png" style="width:10%"></a>
+			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+			</div>
+		</div>
+	</head>
+	
+	<!-- Formulario de Login -->
+	<body>
+		<div class="fundo1 w3-display-container">
+		      <div class="w3-content w3-white" style="max-width:450px; opacity: 0.95">
+			      <div class="w3-center"><br>
+			        <img src="_imagens/logo.png" alt="Logo" style="max-width:30%" class="w3-circle w3-margin-top">
+			      </div>
+			      <form class="w3-container" action="efetuaLogin" method="post">
+			        <div class="w3-section">
+			          <p><input class="w3-input" type="text" placeholder="Email" name="usuario"></p>
+			          <p><input class="w3-input" type="password" placeholder="Senha" name="senha"></p>
+			      	</div>
+			      	<div>
+			          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Lembrar-me
+			          <span class="w3-right w3-margin-top"><a href="#">Esqueceu a senha?</a> </span><br>
+			       	</div>
+			        <div class="w3-margin-top">
+			    	  	<a href="user.html" class="w3-right w3-button w3-blue w3-hover-light-blue w3-round-large" type="submit">Entrar</a>
+			    	  	<a href="index.html" type="button" class="w3-margin-right w3-right w3-button w3-text-red w3-hover-red w3-round-large">Cancelar</a><br>
+			          	<p class="w3-right">Ainda não é cadastrado?<a href="cadastro.html" style="text-decoration: none;" class="w3-section w3-text-blue">    Cadastre-se </a></p>
+			        </div> <br>   		          
+			      </div>
+			    </form>           
+		    </div>
+		</div>
+	</body>
+</html>
