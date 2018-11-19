@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+	 	<meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	    <meta name="description" content="Sistema de Concessionária Pós-Venda" />
+	    <meta name="author" content="Analla Nayane" />
+	    <title>Histórico de Serviços</title>
+	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	 
+	 	<!-- Barra Menu e Head -->
+		<div class="w3-top">
+			<div class="w3-bar w3-light-blue" id="myNavbar">
+			    <a href="index.html"><img class="w3-image w3-bar-item" 
+			    src="_imagens/logo.png" style="width:10%"></a>
+			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+				<div class="w3-dropdown-hover w3-right w3-light-blue">
+                  <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
+                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="perfil.html" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                    <a href="index.html" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+                  </div> 
+            	</div>
+            <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
+			</div>
+		</div>
+	</head>	
+	
+	<!-- Inclusão das funções Java Scripts da página -->
+    <script language="javascript" src="_javascript/funcoes.js"></script>
+
+    <!--Breadcrumbs -->
+    <ul class="breadcrumb" style="margin-top:-1%">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="user.html">Usuário</a></li>
+        <li><a href="meusveiculos.html">Meus Veículos</a></li>
+        <li>Histórico</li>
+    </ul>
+
+    <!-- Historico de Serviços-->
+    <body style="padding-top: 100px">
+        <div class="w3-container w3-blue w3-padding " style="margin-left: 400px; margin-right: 400px; height: auto; margin-top:3%"><a href="meusveiculos.html" class="material-icons w3-text-white w3-padding" style="text-decoration: none; margin-top:1%">arrow_back</a><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Historico</span>
+        <a href="meusveiculos.html" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
+        <div class="w3-container " style="margin-left: 400px; margin-right: 400px; height: 100%;">
+            <i class="material-icons w3-center w3-left" style="font-size:150px; margin-top:2%; margin-left:7%">directions_car</i>
+            <pre class="" style="margin-right:45%">MODELO</pre>
+            <pre class="" style="margin-right:45%">COR</pre>
+            <pre class="" style="margin-right:45%">ANO</pre>
+            <pre class="" style="margin-right:45%">ABC-0000</pre>
+            <hr> 
+            <ul class="w3-ul w3-card-4">
+                <li class="w3-bar">
+                    <span class="w3-large">Revisão</span>
+                    <i onclick="mudarEstado('os1', 'div_os')" class="material-icons w3-right" id="os1">keyboard_arrow_right</i>
+                    <div class="w3-container w3-margin-top" id="div_os" style="display: none">
+                        <span>Revisão Completa do Veículo</span>
+                        <span class="w3-right">dd/mm/aaaa</span>
+                        <hr>
+                    </div>
+                </li>
+                <li class="w3-bar">
+                    <span>Troca de Óleo</span>
+                    <i onclick="mudarEstado('service1', 'div_os2')" class="material-icons w3-right" id="service1">keyboard_arrow_right</i>
+                    <div class="w3-container w3-margin-top" id="div_os2" style="display: none">
+                        <span>Troca de óleo do motor do carro</span>
+                        <span class="w3-right">dd/mm/aaaa</span>
+                         <hr>
+                    </div>
+                </li>
+                <li class="w3-bar">
+                    <span>Balanceamento</span>
+                    <i onclick="mudarEstado('service2', 'div_os3')" class="material-icons w3-right" id="service2">keyboard_arrow_right</i>
+                    <div class="w3-container w3-margin-top" id="div_os3" style="display: none">
+                        <span>Balanceamento e alinhamento do carro</span>
+                        <span class="w3-right">dd/mm/aaaa</span>
+                        <hr>
+                    </div>
+                </li>
+            </ul>
+        </div>
+              
+        <!-- Footer -->
+        <footer class="w3-container w3-center w3-dark-grey w3-margin-top">
+        <a href="https://www.facebook.com/" style="text-decoration: none" target="_blank" class="fa fa-facebook-square w3-text-color-white w3-xxlarge w3-padding"></a>
+        <a href="https://www.instagram.com/" style="text-decoration: none" target="_blank" class="fa fa-instagram w3-text-color-white w3-margin-top w3-xxlarge"></a>
+        <a href="https://www.linkedin.com/" style="text-decoration: none" target="_blank" class="fa fa-linkedin w3-text-color-white w3-xxlarge w3-padding"></a>
+        <a href="#"><i class="fa fa-chevron-circle-up w3-right w3-xxlarge" style="margin-top:4%; margin-right:2%;" alt="Início"></i></a>
+            <p class="w3-center w3-align">© 2018 Hi-Car All Rights Reserved</p><br/>
+        </footer>
+        
+    </body>
+</html>

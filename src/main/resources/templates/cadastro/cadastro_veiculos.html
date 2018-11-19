@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Cadastrar Veículo</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 th:if="${veiculo.id == null}">Cadastrar Veículo</h1>
+		<h1 th:if="${veiculo.id != null}">Editar</h1>
+		<hr />
+		<form th:action="@{/veiculos}" th:method="@{${veiculo.id == null} ? 'post' : 'put'}"
+			th:object="${veiculo}">
+			<input type="hidden" th:field="*{id}" /> 
+			
+				<div class="form-group"> 
+					<label for="modelo">Modelo</label>  
+					<input id="modelo" name="modelo" type="text" class="form-control" th:field="*{modelo}" />  
+				</div> 
+		
+				<div class="form-group" th:object="${veiculo}">
+				<label for="cor">Cor</label>  
+				 <select name="veiculo.id" class="form-control">
+				 	<option value="" disabled selected></option>
+                    <option value="1">Branco</option>
+                    <option value="2">Preto</option>
+                    <option value="3">Cinza</option>
+                    <option value="4">Prata</option>
+                    <option value="5">Vermelho</option>
+                    <option value="6">Azul</option>
+                    <option value="7">Marrom</option>
+                    <option value="8">Verde</option>
+                    <option value="9">Dourado/Amarelo</option>
+                    <option value="10">Laranja</option>
+                    <option value="11">Bege</option>
+                    <option value="12">Outra</option>
+				 	<option th:each="veiculo : ${veiculo}" th:value="${veiculo.id}" th:text="${veiculo.cor}"></option>
+				</select>	
+			   </div>
+							
+				<div class="form-group"> 
+					<label for="chassi">Chassi</label>  
+					<input id="chassi" name="chassi" type="text" class="form-control" th:field="*{chassi}" />  
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="placa">Placa</label>  
+					<input id="placa" name="chassi" type="text" class="form-control" th:field="*{placa}" />  
+				</div> 
+				
+				<div class="form-group" th:object="${veiculo}">
+				<label for="placa">Ano</label> 
+				<select name="veiculo.id" class="form-control">
+					 <option value=""></option><option value="1950">1950 ou anterior</option>
+					 <option value="1955">1955</option><option value="1960">1960</option>
+					 <option value="1965">1965</option><option value="1970">1970</option>
+					 <option value="1975">1975</option><option value="1980">1980</option>
+					 <option value="1981">1981</option><option value="1982">1982</option>
+					 <option value="1983">1983</option><option value="1984">1984</option>
+					 <option value="1985">1985</option><option value="1986">1986</option>
+					 <option value="1987">1987</option><option value="1988">1988</option>
+					 <option value="1989">1989</option><option value="1990">1990</option>
+					 <option value="1991">1991</option><option value="1992">1992</option>
+					 <option value="1993">1993</option><option value="1994">1994</option>
+					 <option value="1995">1995</option><option value="1996">1996</option>
+					 <option value="1997">1997</option><option value="1998">1998</option>
+					 <option value="1999">1999</option><option value="2000">2000</option>
+					 <option value="2001">2001</option><option value="2002">2002</option>
+					 <option value="2003">2003</option><option value="2004">2004</option>
+					 <option value="2005">2005</option><option value="2006">2006</option>
+					 <option value="2007">2007</option><option value="2008">2008</option>
+					 <option value="2009">2009</option><option value="2010">2010</option>
+					 <option value="2011">2011</option><option value="2012">2012</option>
+					 <option value="2013">2013</option><option value="2014">2014</option>
+					 <option value="2015">2015</option><option value="2016">2016</option>
+				 	 <option value="2017">2017</option><option value="2018">2018</option>
+				 	 <option th:each="veiculo : ${veiculo}" th:value="${veiculo.id}" th:text="${veiculo.ano}"></option>
+				</select>	
+			 </div>
+			<button type="submit" class="btn btn-success">Salvar</button>
+			<a th:href="@{/veiculos}" class="btn btn-default">Cancelar</a>
+		</form>
+	</div>
+</body>
+</html>
