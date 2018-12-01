@@ -28,9 +28,9 @@
 				<span th:text="${servico.valor}"></span> 
 			</div> 
 					
-			<a th:href="@{/servicos/indexServ}" class="btn btn-primary" >Voltar</a> 
-			<a th:href="@{/servicos/{id}/edit(id = ${servico.id})}" class="btn btn-info">Editar</a>
-			<a th:href="${servicos.id +'/delete'}" class="btn btn-danger">Excluir</a>
+			<a th:href="@{/servico/indexServ}" class="btn btn-primary" >Voltar</a> 
+			<a th:href="@{/servico/{id}/edit(id = ${servico.id})}" class="btn btn-info">Editar</a>
+			<a th:href="${servico.id +'/delete'}" class="btn btn-danger">Excluir</a>
 			
 		</div>
 	</body>

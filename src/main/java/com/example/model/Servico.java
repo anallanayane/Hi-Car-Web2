@@ -22,7 +22,7 @@ public class Servico implements Serializable {
 	private String nome;
 
 	@Column(name = "tempoMedio")
-	private Integer tempoMedio;
+	private String tempoMedio;
 
 	@Column(name = "valor")
 	private Double valor;
@@ -47,12 +47,20 @@ public class Servico implements Serializable {
 		this.id = id;
 	}
 	
-	public Integer getTempoMedio() {
+	public String getTempoMedio() {
 		return tempoMedio;
 	}
 
-	public void setTempoMedio(Integer tempoMedio) {
+	public void setTempoMedio(String tempoMedio) {
 		this.tempoMedio = tempoMedio;
+	}
+	
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public Double getValor() {
+		return valor;
 	}
 
 }

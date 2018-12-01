@@ -12,42 +12,29 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<h1 th:if="${servico.id == null}">Cadastrar Serviço</h1>
-		<h1 th:if="${servico.id != null}">Edit servico</h1>
+		<h1 th:if="${servico.id == null}">Cadastro de Funcionários</h1>
+		<h1 th:if="${servico.id != null}">Editar Cadastro</h1>
 		<hr />
-		<form th:action="@{/servicos}"
-			th:method="@{${servico.id == null} ? 'post' : 'put'}"
+		<form th:action="@{/servico}" th:method="@{${servico.id == null} ? 'post' : 'put'}"
 			th:object="${servico}">
-			<input type="hidden" th:field="*{id}" />
-			
-			 <div class="form-group" th:object="${servico}">
-				 <select name="module.id" class="form-control">
-				 	 <option value="" disabled selected>Serviço</option>
-					 <option value="1">Revisão Geral</option>
-					 <option value="1">Revisão Geral</option>
-                     <option value="2">Balanceamento</option>
-                     <option value="3">Troca de Óleo</option>
-                     <option value="4">Troca de Pneus</option>
-                     <option value="5">Troca de Bateria</option>
-                     <option value="6">Caixa de Marcha</option>
-			 		 <option th:each="servico : ${servico}" th:value="${servico.id}" th:text="${servico.nome}"></option>
-				</select>	
-			 </div>
-			 
-			 <div class="form-group" th:object="${servico}">
-				 <select name="module.id" class="form-control">
-				 	  <option value="" disabled selected>Tempo Médio</option>
-					  <option value="1">Entre 0 - 30 min</option>
-                      <option value="2">Entre 1h - 2h</option>
-                      <option value="3">Entre 2h - 3h</option>
-                      <option value="4">Entre 3h - 4h</option>
-                      <option value="5">Entre 4h - 5h</option>
-                      <option value="6">Mais de 5h</option>
-			 		 <option th:each="servico : ${servico}" th:value="${servico.id}" th:text="${servico.tempoMedio}"></option>
-				</select>	
-			 </div>
+			<input type="hidden" th:field="*{id}" /> 
+	
+				<div class="form-group"> 
+					<label for="nome">Serviço</label>  
+					<input id="servico" name="servico" type="text" class="form-control" th:field="*{nome}" />  
+				</div> 		
+				
+				<div class="form-group"> 
+					<label for="tempo">Tempo Médio</label>  
+					<input id="tempo" name="tempo" type="text" class="form-control" th:field="*{tempoMedio}" />  
+				</div>
+				 
+				 <div class="form-group"> 
+					<label for="valor">Valor</label>  
+					<input id="valor" name="valor" type="text" class="form-control" th:field="*{valor}" />  
+				</div> 
 
-			<a th:href="@{/servicos/meus_servicos}" class="btn btn-success">Cadastrar</button> 
+			<button type="submit" class="btn btn-success">Cadastrar</button>
 			<a th:href="@{/servicos/meus_servicos}" class="btn btn-default">Cancelar</a>
 		</form>
 	</div>

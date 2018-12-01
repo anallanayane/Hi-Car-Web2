@@ -41,7 +41,7 @@
 					<td th:text="${funcionario.salario}"></td> 
 					<td>
 							<a th:href="@{/funcionario/{id}(id = ${funcionario.id})}" class="btn btn-primary" >Show</a> 
-					 		<a th:href="@{/funcionario/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a> 
+					 		<a th:href="@{/funcionario/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a>  
 					 		<a th:href="${funcionario.id +'/delete'}" class="btn btn-danger">Excluir</a>
 					</td>
 				</tr>

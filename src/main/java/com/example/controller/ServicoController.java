@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.example.model.Pessoa;
 import com.example.model.Servico;
 import com.example.service.ServicoService;
 
@@ -68,7 +70,7 @@ public class ServicoController {
 			e.printStackTrace();
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 		}
-		return "redirect:/servico/meus_servicos";
+		return "redirect:/servico/" + servico.getId();
 	}
 	
 	@GetMapping("/{id}/edit")
@@ -102,13 +104,16 @@ public class ServicoController {
 		try {
 			if (id != null) {
 				Servico entity = servicoService.findOne(id).get();
+				servicoService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			throw new ServiceException(e.getMessage());
 		}
-		return "redirect:/servicos/indexServ";
+		return "redirect:/servico/indexServ";
 	}
+	
+	
 
 }

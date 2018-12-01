@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div layout:fragment="content">
-			<h1>Funcionário Cadastrado</h1>
+			<h1>Funcionário Cadastrado <a th:href="@{/servicos/meus_servicos}" class="btn btn-primary" style="margin-right:20px;" >Meus Serviços</a> </h1>
 			<hr />
 			<div class="form-group"> 
 				<label for="nome">Nome: </label>  
@@ -61,8 +61,7 @@
 							
 			<a th:href="@{/funcionario/indexFunc}" class="btn btn-primary" >Voltar</a> 
 			<a th:href="@{/funcionario/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a>
-			<a th:href="${funcionario.id}" class="btn btn-danger">Excluir</a>
-			
+			<a th:href="${funcionario.id +'/delete'}" class="btn btn-danger">Excluir</a>
 		</div>
 	</body>
 </html>

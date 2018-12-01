@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.model.Funcionario;
+import com.example.model.Pessoa;
 import com.example.service.FuncionarioService;
 
 @Controller
@@ -68,7 +69,7 @@ public class CadFuncionarioController {
 			e.printStackTrace();
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 		}
-		return "redirect:/servicos/meus_servicos";
+		return "redirect:/funcionario/" + funcionario.getId();
 	}
 	
 	@GetMapping("/{id}/edit")
@@ -97,11 +98,13 @@ public class CadFuncionarioController {
 		return "redirect:/funcionario/" + funcionario.getId();
 	}
 	
+
 	@RequestMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
 				Funcionario entity = funcionarioService.findOne(id).get();
+				funcionarioService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}
 		} catch (Exception e) {
