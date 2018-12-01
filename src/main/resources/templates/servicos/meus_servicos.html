@@ -27,7 +27,6 @@
                     <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
                   </div> 
             	</div>
-            <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
 			</div>
 		</div>
 	</head>	
@@ -48,21 +47,17 @@
         <a href="user.html" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
         <div class="w3-container " style="margin-left: 400px; margin-right: 400px; height: 100%;">
             <ul class="w3-ul w3-card-4">
+           		<li class="w3-bar">
+                    <span>Cadastrar Serviço</span>
+                    <a th:href="@{/servico/cadServico}" class="material-icons w3-right" id="service2" style="text-decoration: none">add_circle</a>
+                </li>
                 <li class="w3-bar">
                     <span class="w3-large">Abrir OS</span>
-                    <a href="os.html" class="material-icons w3-right" id="os1" style="text-decoration: none" target="_blank">add_circle</a>                
+                    <a th:href="@{/servico/cadOS}" class="material-icons w3-right" id="os1" style="text-decoration: none">add_circle</a>                
                 </li>
                 <li class="w3-bar">
                     <span>Iniciar Serviço</span>
-                    <a href="iniciarservico.html" class="material-icons w3-right" id="service1" style="text-decoration: none" target="_blank">add_circle</a>
-                </li>
-                <li class="w3-bar">
-                    <span>Visualizar Serviços Ativos</span>
-                    <a href="visualizarservico.html" class="material-icons w3-right" id="service2" style="text-decoration: none" target="_blank">add_circle</a>
-                </li>
-                <li class="w3-bar">
-                    <span>Cadastrar Serviço</span>
-                    <a th:href="@{/cadastro/cadServico}" class="material-icons w3-right" id="service2" style="text-decoration: none" target="_blank">add_circle</a>
+                    <a th:href="@{/servico/iniciarServico}" class="material-icons w3-right" id="service1" style="text-decoration: none">add_circle</a>
                 </li>
             </ul>
         </div>

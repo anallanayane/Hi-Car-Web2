@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+    <title>Clientes Cadastrados</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>Funcionários</h1>
+		<hr />
+		<a th:href="@{/funcionario/cadFuncionario}" class="btn btn-success">Cadastrar</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th> 
+					<th>CPF</th>
+					<th>Endereço</th>
+					<th>Telefone</th>
+					<th>Email</th> 
+					<th>Empresa</th> 
+					<th>Função</th> 
+					<th>Salário</th> 
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="funcionario : ${listFuncionario}">
+					<td th:text="${funcionario.nome}"></td> 
+					<td th:text="${funcionario.cpf}"></td>
+					<td th:text="${funcionario.endereco}"></td> 
+					<td th:text="${funcionario.telefone}"></td>  
+					<td th:text="${funcionario.email}"></td> 
+					<td th:text="${funcionario.empresa}"></td> 
+					<td th:text="${funcionario.funcao}"></td> 
+					<td th:text="${funcionario.salario}"></td> 
+					<td>
+							<a th:href="@{/funcionario/{id}(id = ${funcionario.id})}" class="btn btn-primary" >Show</a> 
+					 		<a th:href="@{/funcionario/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a> 
+					 		<a th:href="${funcionario.id +'/delete'}" class="btn btn-danger">Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  
+	  
+</body>
+</html>

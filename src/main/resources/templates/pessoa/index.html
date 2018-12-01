@@ -27,7 +27,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="pessoa : ${listpessoa}">
+				<tr th:each="pessoa : ${listPessoa}">
 					<td th:text="${pessoa.nome}"></td> 
 					<td th:text="${pessoa.cpf}"></td>
 					<td th:text="${pessoa.endereco}"></td> 
@@ -36,7 +36,7 @@
 					<td>
 							<a th:href="@{/cadastro/{id}(id = ${pessoa.id})}" class="btn btn-primary" >Show</a> 
 					 		<a th:href="@{/cadastro/{id}/edit(id = ${pessoa.id})}" class="btn btn-info">Editar</a> 
-					 		<a th:href="${'cadastro/'+ pessoa.id +'/delete'}" class="btn btn-danger">Excluir</a>
+					 		<a th:href="${pessoa.id +'/delete'}" class="btn btn-danger">Excluir</a>
 					</td>
 				</tr>
 			</tbody>

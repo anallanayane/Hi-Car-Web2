@@ -35,7 +35,12 @@
 			
 			<div class="form-group"> 
 				<label for="matricula">Matrícula: </label>  
-				<span th:text="${funcionario.matricula}"></span> 
+				<span th:text="${funcionario.id}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="email">Email: </label>  
+				<span th:text="${funcionario.email}"></span> 
 			</div> 
 			
 			<div class="form-group"> 
@@ -53,19 +58,10 @@
 				<span th:text="${funcionario.salario}"></span> 
 			</div> 
 			
-			<div class="form-group"> 
-				<label for="email">Email: </label>  
-				<span th:text="${funcionario.email}"></span> 
-			</div> 
-			
-			<div class="form-group"> 
-				<label for="email">Email: </label>  
-				<span th:text="${funcionario.email}"></span> 
-			</div> 
-					
-			<a th:href="@{/cadastro/cadFuncionario}" class="btn btn-primary" >Voltar</a> 
-			<a th:href="@{/cadastro/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a>
-			<a th:href="${funcionario.id +'/delete'}" class="btn btn-danger">Excluir</a>
+							
+			<a th:href="@{/funcionario/indexFunc}" class="btn btn-primary" >Voltar</a> 
+			<a th:href="@{/funcionario/{id}/edit(id = ${funcionario.id})}" class="btn btn-info">Editar</a>
+			<a th:href="${funcionario.id}" class="btn btn-danger">Excluir</a>
 			
 		</div>
 	</body>

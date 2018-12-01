@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+    <title>Serviços Cadastrados</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>Serviços</h1>
+		<hr />
+		<a th:href="@{/servico/cadServico}" class="btn btn-success">Cadastrar</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th> 
+					<th>Tempo Médio</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="servico : ${listServico}">
+					<td th:text="${servico.nome}"></td> 
+					<td th:text="${servico.tempoMedio}"></td>
+					<td th:text="${servico.valor}"></td> 
+					<td>
+							<a th:href="@{/servico/{id}(id = ${servico.id})}" class="btn btn-primary" >Show</a> 
+					 		<a th:href="@{/servico/{id}/edit(id = ${servico.id})}" class="btn btn-info">Editar</a> 
+					 		<a th:href="${servico.id +'/delete'}" class="btn btn-danger">Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  
+	  
+</body>
+</html>

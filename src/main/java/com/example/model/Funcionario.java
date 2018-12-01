@@ -31,12 +31,12 @@ public class Funcionario extends Pessoa implements Serializable {
 	@ManyToOne
 	private Empresa empresa;
 
-	public Integer getMatricula() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setMatricula(Integer matricula) {
-		this.id = matricula;
+	public void setMatricula(Integer id) {
+		this.id = id;
 	}
 
 	public String getFuncao() {
