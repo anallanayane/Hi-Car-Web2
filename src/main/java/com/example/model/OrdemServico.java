@@ -21,38 +21,38 @@ public class OrdemServico implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "name", nullable = false)
-	private String name;
+	@Column(name = "servico", nullable = false)
+	private String servico;
 
-	@Column(name = "email")
-	private String email;
+	@Column(name = "veiculo")
+	private String veiculo;
 
-	@Column(name = "registration")
-	private String registration;
+	@Column(name = "funcionario")
+	private String funcionario;
 	
 
-	public void setName(String name) {
-		this.name = name;
+	public void setServico(String servico) {
+		this.servico = servico;
 	}
 
-	public String getName() {
-		return name;
+	public String getServico() {
+		return servico;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setVeiculo(String veiculo) {
+		this.veiculo = veiculo;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getVeiculo() {
+		return veiculo;
 	}
 
-	public void setRegistration(String registration) {
-		this.registration = registration;
+	public void setFuncionario(String funcionario) {
+		this.funcionario = funcionario;
 	}
 
-	public String getRegistration() {
-		return registration;
+	public String getFuncionario() {
+		return funcionario;
 	}
 
 	public Integer getId() {

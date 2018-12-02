@@ -27,9 +27,8 @@ public class Funcionario extends Pessoa implements Serializable {
 	@Column(name = "salario")
 	private Double salario;
 	
-	@JoinColumn(name="empresa")
-	@ManyToOne
-	private Empresa empresa;
+	@Column(name = "empresa")
+	private String empresa;
 
 	public Integer getId() {
 		return id;
@@ -55,11 +54,11 @@ public class Funcionario extends Pessoa implements Serializable {
 		this.salario = salario;
 	}
 
-	public Empresa getEmpresa() {
+	public String getEmpresa() {
 		return empresa;
 	}
 
-	public void setEmpresa(Empresa empresa) {
+	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
 	}
 	

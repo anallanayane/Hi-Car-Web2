@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Cadastrar Veículo</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 th:if="${veiculo.id == null}">Cadastrar Veículo</h1>
+		<h1 th:if="${veiculo.id != null}">Editar</h1>
+		<hr />
+		<form th:action="@{/veiculo}" th:method="@{${veiculo.id == null} ? 'post' : 'put'}"
+			th:object="${veiculo}">
+			<input type="hidden" th:field="*{id}" /> 
+			
+				<div class="form-group"> 
+					<label for="modelo">Modelo</label>  
+					<input id="modelo" name="modelo" type="text" class="form-control" th:field="*{modelo}" />  
+				</div> 
+		
+				<div class="form-group" th:object="${veiculo}">
+					<label for="cor">Cor</label> 
+					<input id="cor" name="cor" type="text" class="form-control" th:field="*{cor}" />   
+			   </div>
+							
+				<div class="form-group"> 
+					<label for="chassi">Chassi</label>  
+					<input id="chassi" name="chassi" type="text" class="form-control" th:field="*{chassi}" />  
+				</div> 
+				
+				<div class="form-group"> 
+					<label for="placa">Placa</label>  
+					<input id="placa" name="chassi" type="text" class="form-control" th:field="*{placa}" />  
+				</div> 
+				
+				<div class="form-group">
+					<label for="ano">Ano</label>
+					<input id="ano" name="ano" type="text" class="form-control" th:field="*{ano}" />  
+				</div> 
+					 			
+			<button type="submit" class="btn btn-success">Cadastrar</button>
+			<a th:href="@{/veiculos/meus_veiculos}" class="btn btn-default">Cancelar</a>
+		</form>
+	</div>
+</body>
+</html>

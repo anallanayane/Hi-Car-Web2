@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.example.model.Funcionario;
-import com.example.service.FuncionarioService;
+import com.example.model.Veiculo;
+import com.example.service.VeiculoService;
 
 @Controller
-@RequestMapping("/funcionario")
-public class CadFuncionarioController {
+@RequestMapping("/veiculo")
+public class VeiculoController {
 
 	private static final String MSG_SUCESS_INSERT = "Cadastro Realizado com Sucesso!";
 	private static final String MSG_SUCESS_UPDATE = "Cadastro Atualizado!";
@@ -29,35 +29,35 @@ public class CadFuncionarioController {
 	private static final String MSG_ERROR = "Error.";
 
 	@Autowired
-	private FuncionarioService funcionarioService;
+	private VeiculoService veiculoService;
 	
-	@GetMapping(value = "/indexFunc")
+	@GetMapping(value = "/indexVeic")
 	public String index(Model model) {
-		List<Funcionario> all = funcionarioService.findAll();
-		model.addAttribute("listFuncionario", all);
+		List<Veiculo> all = veiculoService.findAll();
+		model.addAttribute("listVeiculo", all);
 		model.addAttribute("");
-		return "funcionario/indexFunc";
+		return "veiculos/indexVeic";
 	}
 
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			Funcionario funcionario = funcionarioService.findOne(id).get();
-			model.addAttribute("funcionario", funcionario);
+			Veiculo veiculo = veiculoService.findOne(id).get();
+			model.addAttribute("veiculo", veiculo);
 		}
-		return "funcionario/showFunc";
+		return "veiculos/showVeic";
 	}
 	
-	@GetMapping(value = "/cadFuncionario")
-	public String create(Model model, @ModelAttribute Funcionario entityFuncionario) {
-		return "funcionario/cadastro_funcionario";
+	@GetMapping(value = "/cadVeiculo")
+	public String create(Model model, @ModelAttribute Veiculo entityVeiculo) {
+		return "veiculos/cadastro_veiculos";
 	}
 	
 	@PostMapping
-	public String create(@Valid @ModelAttribute Funcionario entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		Funcionario funcionario = null;
+	public String create(@Valid @ModelAttribute Veiculo entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		Veiculo veiculo = null;
 		try {
-			funcionario = funcionarioService.save(entity);
+			veiculo = veiculoService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
 		} catch (Exception e) {
 			System.out.println("Exception:: exception");
@@ -68,33 +68,33 @@ public class CadFuncionarioController {
 			e.printStackTrace();
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 		}
-		return "redirect:/funcionario/" + funcionario.getId();
+		return "redirect:/veiculo/" + veiculo.getId();
 	}
 	
 	@GetMapping("/{id}/edit")
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				Funcionario entity = funcionarioService.findOne(id).get();
-				model.addAttribute("funcionario", entity);
+				Veiculo entity = veiculoService.findOne(id).get();
+				model.addAttribute("veiculo", entity);
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
 		}
-		return "funcionario/cadastro_funcionario";
+		return "veiculos/cadastro_veiculos";
 	}
 	
 	@PutMapping
-	public String update(@Valid @ModelAttribute Funcionario entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		Funcionario funcionario = null;
+	public String update(@Valid @ModelAttribute Veiculo entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		Veiculo veiculo = null;
 		try {
-			funcionario = funcionarioService.save(entity);
+			veiculo = veiculoService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/funcionario/" + funcionario.getId();
+		return "redirect:/veiculo/" + veiculo.getId();
 	}
 	
 
@@ -102,15 +102,15 @@ public class CadFuncionarioController {
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				Funcionario entity = funcionarioService.findOne(id).get();
-				funcionarioService.delete(entity);
+				Veiculo entity = veiculoService.findOne(id).get();
+				veiculoService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			throw new ServiceException(e.getMessage());
 		}
-		return "redirect:/funcionario/indexFunc";
+		return "redirect:/veiculo/indexVeic";
 	}
 
 }

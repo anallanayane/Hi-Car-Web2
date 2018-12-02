@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>Veículos Cadastrados</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<h1>Veículo Cadastrado</h1>
+			<hr />
+			
+			<div class="form-group"> 
+				<label for="modelo">Modelo: </label>  
+				<span th:text="${veiculo.modelo}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="cor">Cor: </label>  
+				<span th:text="${veiculo.cor}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="chassi">Chassi: </label>  
+				<span th:text="${veiculo.chassi}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="placa">Placa: </label>  
+				<span th:text="${veiculo.placa}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="ano">Ano: </label>  
+				<span th:text="${veiculo.ano}"></span> 
+			</div> 
+			
+			<a th:href="@{/veiculo/indexVeic}" class="btn btn-primary" >Voltar</a> 
+			<a th:href="@{/veiculo/{id}/edit(id = ${veiculo.id})}" class="btn btn-info">Editar</a>
+			<a th:href="${veiculo.id +'/delete'}" class="btn btn-danger">Excluir</a>
+			
+		</div>
+	</body>
+</html>

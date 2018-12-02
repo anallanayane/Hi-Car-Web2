@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.example.model.Funcionario;
-import com.example.service.FuncionarioService;
+import com.example.model.OrdemServico;
+import com.example.service.OSService;
 
 @Controller
-@RequestMapping("/funcionario")
-public class CadFuncionarioController {
+@RequestMapping("/os")
+public class OSController {
 
 	private static final String MSG_SUCESS_INSERT = "Cadastro Realizado com Sucesso!";
 	private static final String MSG_SUCESS_UPDATE = "Cadastro Atualizado!";
@@ -29,35 +29,35 @@ public class CadFuncionarioController {
 	private static final String MSG_ERROR = "Error.";
 
 	@Autowired
-	private FuncionarioService funcionarioService;
+	private OSService osService;
 	
-	@GetMapping(value = "/indexFunc")
+	@GetMapping(value = "/indexOS")
 	public String index(Model model) {
-		List<Funcionario> all = funcionarioService.findAll();
-		model.addAttribute("listFuncionario", all);
+		List<OrdemServico> all = osService.findAll();
+		model.addAttribute("listOS", all);
 		model.addAttribute("");
-		return "funcionario/indexFunc";
+		return "servicos/indexOS";
 	}
 
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			Funcionario funcionario = funcionarioService.findOne(id).get();
-			model.addAttribute("funcionario", funcionario);
+			OrdemServico os = osService.findOne(id).get();
+			model.addAttribute("os", os);
 		}
-		return "funcionario/showFunc";
+		return "servicos/showOS";
 	}
 	
-	@GetMapping(value = "/cadFuncionario")
-	public String create(Model model, @ModelAttribute Funcionario entityFuncionario) {
-		return "funcionario/cadastro_funcionario";
+	@GetMapping(value = "/cadOS")
+	public String create(Model model, @ModelAttribute OrdemServico entityOS) {
+		return "servicos/abrir_os";
 	}
 	
 	@PostMapping
-	public String create(@Valid @ModelAttribute Funcionario entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		Funcionario funcionario = null;
+	public String create(@Valid @ModelAttribute OrdemServico entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		OrdemServico os = null;
 		try {
-			funcionario = funcionarioService.save(entity);
+			os = osService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
 		} catch (Exception e) {
 			System.out.println("Exception:: exception");
@@ -68,33 +68,33 @@ public class CadFuncionarioController {
 			e.printStackTrace();
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 		}
-		return "redirect:/funcionario/" + funcionario.getId();
+		return "redirect:/os/" + os.getId();
 	}
 	
 	@GetMapping("/{id}/edit")
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				Funcionario entity = funcionarioService.findOne(id).get();
-				model.addAttribute("funcionario", entity);
+				OrdemServico entity = osService.findOne(id).get();
+				model.addAttribute("os", entity);
 			}
 		} catch (Exception e) {
 			throw new ServiceException(e.getMessage());
 		}
-		return "funcionario/cadastro_funcionario";
+		return "servicos/abrir_os";
 	}
 	
 	@PutMapping
-	public String update(@Valid @ModelAttribute Funcionario entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		Funcionario funcionario = null;
+	public String update(@Valid @ModelAttribute OrdemServico entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		OrdemServico os = null;
 		try {
-			funcionario = funcionarioService.save(entity);
+			os = osService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			e.printStackTrace();
 		}
-		return "redirect:/funcionario/" + funcionario.getId();
+		return "redirect:/os/" + os.getId();
 	}
 	
 
@@ -102,15 +102,15 @@ public class CadFuncionarioController {
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				Funcionario entity = funcionarioService.findOne(id).get();
-				funcionarioService.delete(entity);
+				OrdemServico entity = osService.findOne(id).get();
+				osService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute("error", MSG_ERROR);
 			throw new ServiceException(e.getMessage());
 		}
-		return "redirect:/funcionario/indexFunc";
+		return "redirect:/os/indexOS";
 	}
 
 }
