@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>Ordens de Serviços Cadastradas</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<h1>Ordem de Serviço</h1>
+			<hr />
+			<div class="form-group"> 
+				<label for="nome">Nome: </label>  
+				<span th:text="${os.nome}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="funcionario">Funcionário: </label>  
+				<span th:text="${os.funcionario}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="veiculo">Veículo: </label>  
+				<span th:text="${os.veiculo}"></span> 
+			</div> 
+			
+			<div class="form-group"> 
+				<label for="servico">Serviço: </label>  
+				<span th:text="${os.servico}"></span> 
+			</div> 
+					
+			<a th:href="@{/os/indexServ}" class="btn btn-primary" >Voltar</a> 
+			<a th:href="@{/os/{id}/edit(id = ${os.id})}" class="btn btn-info">Editar</a>
+			<a th:href="${os.id +'/delete'}" class="btn btn-danger">Excluir</a>
+			
+		</div>
+	</body>
+</html>

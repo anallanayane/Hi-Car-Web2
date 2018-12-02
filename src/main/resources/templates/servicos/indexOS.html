@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  
+    <title>Ordem de Serviços Cadastrados</title>
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>Ordem de Serviço</h1>
+		<hr />
+		
+		<a th:href="@{/oss/meus_oss}" class="btn btn-primary">Meus Serviços</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th> 
+					<th>Funcionário</th>
+					<th>Veículo</th>
+					<th>Serviço</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="os : ${listOS}">
+					<td th:text="${os.nome}"></td> 
+					<td th:text="${os.funcionario}"></td>
+					<td th:text="${os.veiculo}"></td>
+					<td th:text="${os.servico}"></td> 
+					<td>
+							<a th:href="@{/os/{id}(id = ${os.id})}" class="btn btn-primary" >Show</a> 
+					 		<a th:href="@{/os/{id}/edit(id = ${os.id})}" class="btn btn-info">Editar</a> 
+					 		<a th:href="${os.id +'/delete'}" class="btn btn-danger">Excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  
+	  
+</body>
+</html>

@@ -16,24 +16,4 @@ public class HomeController {
 		return "login/login";
 	}
 	
-	@RequestMapping("/user")
-	public String user() {
-		return "user";
-	}
-	
-	@RequestMapping("/perfil")
-	public String perfil() {
-		return "perfil";
-	}
-	
-	@RequestMapping("/veiculos/meus_veiculos")
-	public String veiculos() {
-		return "veiculos/meus_veiculos";
-	}
-	
-	@RequestMapping("/servicos/meus_servicos")
-	public String servicos() {
-		return "servicos/meus_servicos";
-	}
-	
 }

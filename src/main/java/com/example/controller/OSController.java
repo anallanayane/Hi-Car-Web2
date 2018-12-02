@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.example.model.OrdemServico;
+import com.example.model.OS;
 import com.example.service.OSService;
 
 @Controller
@@ -33,7 +33,7 @@ public class OSController {
 	
 	@GetMapping(value = "/indexOS")
 	public String index(Model model) {
-		List<OrdemServico> all = osService.findAll();
+		List<OS> all = osService.findAll();
 		model.addAttribute("listOS", all);
 		model.addAttribute("");
 		return "servicos/indexOS";
@@ -42,20 +42,20 @@ public class OSController {
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id) {
 		if (id != null) {
-			OrdemServico os = osService.findOne(id).get();
+			OS os = osService.findOne(id).get();
 			model.addAttribute("os", os);
 		}
 		return "servicos/showOS";
 	}
 	
 	@GetMapping(value = "/cadOS")
-	public String create(Model model, @ModelAttribute OrdemServico entityOS) {
+	public String create(Model model, @ModelAttribute OS entityOS) {
 		return "servicos/abrir_os";
 	}
-	
+		
 	@PostMapping
-	public String create(@Valid @ModelAttribute OrdemServico entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		OrdemServico os = null;
+	public String create(@Valid @ModelAttribute OS entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		OS os = null;
 		try {
 			os = osService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_INSERT);
@@ -75,7 +75,7 @@ public class OSController {
 	public String update(Model model, @PathVariable("id") Integer id) {
 		try {
 			if (id != null) {
-				OrdemServico entity = osService.findOne(id).get();
+				OS entity = osService.findOne(id).get();
 				model.addAttribute("os", entity);
 			}
 		} catch (Exception e) {
@@ -85,8 +85,8 @@ public class OSController {
 	}
 	
 	@PutMapping
-	public String update(@Valid @ModelAttribute OrdemServico entity, BindingResult result, RedirectAttributes redirectAttributes) {
-		OrdemServico os = null;
+	public String update(@Valid @ModelAttribute OS entity, BindingResult result, RedirectAttributes redirectAttributes) {
+		OS os = null;
 		try {
 			os = osService.save(entity);
 			redirectAttributes.addFlashAttribute("success", MSG_SUCESS_UPDATE);
@@ -97,12 +97,11 @@ public class OSController {
 		return "redirect:/os/" + os.getId();
 	}
 	
-
 	@RequestMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
-				OrdemServico entity = osService.findOne(id).get();
+				OS entity = osService.findOne(id).get();
 				osService.delete(entity);
 				redirectAttributes.addFlashAttribute("success", MSG_SUCESS_DELETE);
 			}

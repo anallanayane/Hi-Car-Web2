@@ -36,8 +36,8 @@
  
  <body>
 	<div layout:fragment="content">
-		<h1 th:if="${os.id == null}">New Student</h1>
-		<h1 th:if="${os.id != null}">Edit Student</h1>
+		<h1 th:if="${os.id == null}">New OS</h1>
+		<h1 th:if="${os.id != null}">Edit OS</h1>
 		<hr />
 		<form th:action="@{/os}"
 			th:method="@{${os.id == null} ? 'post' : 'put'}"

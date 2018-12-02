@@ -2,7 +2,7 @@ package com.example.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.model.OrdemServico;
+import com.example.model.OS;
 import com.example.repository.OSRepository;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -15,21 +15,21 @@ public class OSService {
 	@Autowired
 	private OSRepository osRepository;
 
-	public List<OrdemServico> findAll() {
+	public List<OS> findAll() {
 		return osRepository.findAll();
 	}
 	
-	public Optional<OrdemServico> findOne(Integer id) {
+	public Optional<OS> findOne(Integer id) {
 		return osRepository.findById(id);
 	}
 	
 	@Transactional(readOnly = false)
-	public OrdemServico save(OrdemServico entity) {
+	public OS save(OS entity) {
 		return osRepository.save(entity);
 	}
 
 	@Transactional(readOnly = false)
-	public void delete(OrdemServico entity) {
+	public void delete(OS entity) {
 		osRepository.delete(entity);
 	}
 
