@@ -93,5 +93,10 @@ public class Pessoa implements Serializable {
 		this.senha = senha;
 	}
 
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", nome=" + nome + "]";
+	}
 	
 }
+
