@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.example.model.Servico;
 import com.example.model.Veiculo;
 import com.example.service.VeiculoService;
 
@@ -46,6 +48,11 @@ public class VeiculoController {
 			model.addAttribute("veiculo", veiculo);
 		}
 		return "veiculos/showVeic";
+	}
+	
+	@GetMapping(value = "/veiculos")
+	public String veiculo(Model model, @ModelAttribute Servico entityServico) {
+		return "veiculos/meus_veiculos";
 	}
 	
 	@GetMapping(value = "/cadVeiculo")

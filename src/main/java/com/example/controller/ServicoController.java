@@ -48,6 +48,11 @@ public class ServicoController {
 		return "servicos/showServ";
 	}
 	
+	@GetMapping(value = "/servicos")
+	public String veiculo(Model model, @ModelAttribute Servico entityServico) {
+		return "servicos/meus_servicos";
+	}
+	
 	@GetMapping(value = "/cadServico")
 	public String create(Model model, @ModelAttribute Servico entityServico) {
 		return "servicos/cadastro_servico";

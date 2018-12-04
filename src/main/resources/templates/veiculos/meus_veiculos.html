@@ -18,7 +18,7 @@
         <div class="w3-top">
           <div class="w3-bar w3-light-blue" id="myNavbar">
             <a href="/"><img class="w3-image w3-bar-item" 
-            src="_imagens/logo.png" style="width:10%"></a>
+            src="/_imagens/logo.png" style="width:10%"></a>
             <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
 
             <div class="w3-dropdown-hover w3-right w3-light-blue">
@@ -36,9 +36,9 @@
     <body style="padding-top: 120px">
 
         <div class="w3-container w3-blue w3-padding " style="margin-left: 400px; margin-right: 400px; height: auto; margin-top:3%">
-            <a th:href="@{cadastro/show}" class="material-icons w3-text-white w3-padding" style="text-decoration: none; margin-top:1%">arrow_back</a><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Meus Veículos</span>
-            <a th:href="@{cadastro/show}" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
-        
+            <a th:href="@{/cadastro/show}" class="material-icons w3-text-white w3-padding" style="text-decoration: none; margin-top:1%">arrow_back</a><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Meus Veículos</span>
+            <a th:href="@{/cadastro/show}"class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
+        		 
             <i class="material-icons w3-center w3-left" style="font-size:100px; margin-top:3%; margin-left:35%; margin-bottom:5%">directions_car</i>
              <h6 style="margin-left:50%; margin-top:5%">Adicionar novo veículo<a style="text-decoration: none; margin-top:3%" th:href="@{/veiculo/cadVeiculo}" class="material-icons w3-text-blue w3-xxlarg">add_circle</a></h6>
 
@@ -49,7 +49,6 @@
                            <span class="w3-display-topmiddle w3-large w3-text-blue">Modelo</span><br>
                            <span class="w3-display-right w3-small">Cor: ----</span><br>
                            <span class="w3-display-bottomright w3-small">Ano: 0000</span><br>
-                           <span class="w3-display-left w3-small">Placa: ABC-1234</span><br>
                            <span class="w3-display-bottomleft w3-small">Chassi: 0000000000</span>
 
                            <div class="w3-dropdown-hover w3-display-topright">
