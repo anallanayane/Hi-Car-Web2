@@ -25,13 +25,16 @@ public class PessoaService {
 		return pessoaRepository.findById(id);
 	}
 	
+	
 	@Transactional(readOnly = false)
-	public Pessoa save(Pessoa entity) {
-		if(!PessoaService.isCPF(entity.getCpf()) || !PessoaService.isNome(entity.getNome()))
+	public Pessoa save(Pessoa entity) throws Exception {
+		
+		if(!PessoaService.isCPF(entity.getCpf()) || !PessoaService.isNome(entity.getNome()) ||  !PessoaService.isEmail(entity.getEmail()))
 			return null;
 		
 		return pessoaRepository.save(entity);
 	}
+
 
 	@Transactional(readOnly = false)
 	public void delete(Pessoa entity) {
@@ -99,6 +102,15 @@ public class PessoaService {
 	        return false;
 		
 	    return true;
+	}
+	
+	public static boolean isEmail(String email) {
+		
+		if(email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+        	return true;
+        return false;
+		
 	}
 
 }

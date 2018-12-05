@@ -27,7 +27,7 @@ public class ServicoService {
 	public Servico save(Servico entity) {
 		return servicoRepository.save(entity);
 	}
-
+	
 	@Transactional(readOnly = false)
 	public void delete(Servico entity) {
 		servicoRepository.delete(entity);

@@ -27,7 +27,7 @@ public class FuncionarioService {
 	
 	@Transactional(readOnly = false)
 	public Funcionario save(Funcionario entity) {
-		if(!FuncionarioService.isCPF(entity.getCpf()) || !FuncionarioService.isNome(entity.getNome()))
+		if(!FuncionarioService.isCPF(entity.getCpf()) || !FuncionarioService.isNome(entity.getNome()) || !FuncionarioService.isEmail(entity.getEmail()))
 			return null;
 		
 		return funcionarioRepository.save(entity);
@@ -99,6 +99,15 @@ public class FuncionarioService {
 	        return false;
 		
 	    return true;
+	}
+	
+public static boolean isEmail(String email) {
+		
+		if(email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"))
+        	return true;
+        return false;
+		
 	}
 
 }

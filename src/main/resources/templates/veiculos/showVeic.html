@@ -48,7 +48,7 @@
            	        <div class="w3-dropdown-hover w3-display-topright">
                        <a onclick="dropdown()" class="w3-button material-icons">keyboard_arrow_down</a>
                        <div class="w3-dropdown-content w3-bar-block w3-border">
-                           <a th:href="@{/servico/indexServ}" class="w3-bar-item w3-button">Histórico</a>
+                           <a th:href="@{/servico/{id}/indexServCliente(id = ${veiculo.id})}" class="w3-bar-item w3-button">Histórico</a>
                            <a th:href="@{/veiculo/cadVeiculo}" class="w3-bar-item w3-button">Agendar Serviço</a>
                            <a th:href="@{/veiculo/cadVeiculo}" class="w3-bar-item w3-button">Serviços Ativos</a>
                         </div>

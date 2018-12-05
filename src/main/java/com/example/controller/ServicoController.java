@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.Valid;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.model.Servico;
 import com.example.service.ServicoService;
+import com.example.model.Veiculo;
+import com.example.service.VeiculoService;
 
 @Controller
 @RequestMapping("/servico")
@@ -31,12 +35,29 @@ public class ServicoController {
 	@Autowired
 	private ServicoService servicoService;
 	
+	@Autowired
+	private VeiculoService veiculoService;
+	
 	@GetMapping(value = "/indexServ")
 	public String index(Model model) {
 		List<Servico> all = servicoService.findAll();
 		model.addAttribute("listServico", all);
 		model.addAttribute("");
 		return "servicos/indexServ";
+	}
+	
+	@GetMapping(value = "/{id}/indexServCliente")
+	public String index2(Model model,  @PathVariable("id") Integer id) {
+		List<Servico> all = servicoService.findAll();
+		
+		all = all.parallelStream()
+				.filter(servico-> servico.getStatus().equals("Fechado"))
+				.filter(servico-> servico.getVeiculo().equals(veiculoService.findOne(id).get().getPlaca()))
+				.collect(Collectors.toList());
+		
+		model.addAttribute("listServico", all);
+		model.addAttribute("");
+		return "servicos/indexServCliente";
 	}
 
 	@GetMapping("/{id}")
