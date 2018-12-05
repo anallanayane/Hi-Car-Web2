@@ -11,14 +11,14 @@
 	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
+		<link rel="stylesheet" th:href="@{/_css/estilo.css}" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	 
 	 	<!-- Barra Menu e Head -->
 		<div class="w3-top">
 			<div class="w3-bar w3-light-blue" id="myNavbar">
 			    <a href="/"><img class="w3-image w3-bar-item" 
-			    src="_imagens/logo.png" style="width:10%"></a>
+			    src="_imagens/logo.png" th:src="@{/_imagens/logo.png}" style="width:10%"></a>
 			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
 				<div class="w3-dropdown-hover w3-right w3-light-blue">
                   <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
@@ -27,7 +27,6 @@
                     <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
                   </div> 
             	</div>
-            <a href="mensagem.html" class="w3-light-blue material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white w3-right"style="text-decoration: none">email</a>
 			</div>
 		</div>
 	</head>	
@@ -35,34 +34,27 @@
     <!-- Inclusão das funções Java Scripts da página -->
     <script language="javascript" src="_javascript/funcoes.js"></script>
 
-    <!--Breadcrumbs -->
-    <ul class="breadcrumb" style="margin-top:-1%">
-        <li><a href="/">Home</a></li>
-        <li><a th:href="@{/user}" >Usuário</a></li>
-        <li>Meus Serviços</li>
-    </ul>
-
     <!-- Corpo da Página Meus Serviços-->
     <body style="padding-top: 100px">
-        <div class="w3-container w3-blue w3-padding " style="margin-left: 415px; margin-right: 415px; height: auto; margin-top:3%"><a href="user.html" class="material-icons w3-text-white w3-padding" style="text-decoration: none; margin-top:1%">arrow_back</a><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Meus Serviços</span>
-        <a href="user.html" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
+        <div class="w3-container w3-blue w3-padding " style="margin-left: 415px; margin-right: 415px; height: auto; margin-top:3%"><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Meus Serviços</span>
+        <a th:href="@{funcionario/indexeFunc}" class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
         <div class="w3-container " style="margin-left: 400px; margin-right: 400px; height: 100%;">
             <ul class="w3-ul w3-card-4">
+           		<li class="w3-bar">
+                    <span>Cadastrar Serviço</span>
+                    <a th:href="@{/servico/cadServico}" class="material-icons w3-right" id="service2" style="text-decoration: none">add_circle</a>
+                </li>
                 <li class="w3-bar">
                     <span class="w3-large">Abrir OS</span>
-                    <a href="os.html" class="material-icons w3-right" id="os1" style="text-decoration: none" target="_blank">add_circle</a>                
+                    <a th:href="@{/os/cadOS}" class="material-icons w3-right" id="os1" style="text-decoration: none">add_circle</a>                
                 </li>
                 <li class="w3-bar">
                     <span>Iniciar Serviço</span>
-                    <a href="iniciarservico.html" class="material-icons w3-right" id="service1" style="text-decoration: none" target="_blank">add_circle</a>
+                    <a th:href="@{/servico/iniciarServico}" class="material-icons w3-right" id="service1" style="text-decoration: none">add_circle</a>
                 </li>
                 <li class="w3-bar">
-                    <span>Visualizar Serviços Ativos</span>
-                    <a href="visualizarservico.html" class="material-icons w3-right" id="service2" style="text-decoration: none" target="_blank">add_circle</a>
-                </li>
-                <li class="w3-bar">
-                    <span>Cadastrar Serviço</span>
-                    <a th:href="@{/cadastro/cadServico}" class="material-icons w3-right" id="service2" style="text-decoration: none" target="_blank">add_circle</a>
+                    <span>Visualizar Serviços</span>
+                    <a th:href="@{/servico/indexServ}" class="material-icons w3-right" id="service3" style="text-decoration: none">add_circle</a>
                 </li>
             </ul>
         </div>

@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>New Module</title>
-</head>
-<body>
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+	 	<meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	    <meta name="description" content="Sistema de Concessionária Pós-Venda" />
+	    <meta name="author" content="Analla Nayane" />
+	    <title>Meus Serviços</title>
+	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
+	       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	 
+	 	<!-- Barra Menu e Head -->
+		<div class="w3-top">
+			<div class="w3-bar w3-light-blue" id="myNavbar">
+			    <a href="/"><img class="w3-image w3-bar-item" 
+			    src="_imagens/logo.png" style="width:10%"></a>
+			    <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+				<div class="w3-dropdown-hover w3-right w3-light-blue">
+	                 <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
+	                 <div class="w3-dropdown-content w3-bar-block w3-border">
+	                   <a th:href="@{/perfil}" class="w3-bar-item w3-button w3-hover-blue">Perfil</a>
+	                   <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+	                 </div> 
+	           	</div>
+			</div>
+		</div>
+	</head>	
+	
+	<!-- Inclusão das funções Java Scripts da página -->
+	<script language="javascript" src="_javascript/funcoes.js"></script>
+ 
+ <body>
 	<div layout:fragment="content">
-		<h1 th:if="${module.id == null}">New Module</h1>
-		<h1 th:if="${module.id != null}">Edit Module</h1>
+		<h1 th:if="${os.id == null}">New OS</h1>
+		<h1 th:if="${os.id != null}">Edit OS</h1>
 		<hr />
-		<form th:action="@{/modules}" th:method="@{${module.id == null} ? 'post' : 'put'}"
-			th:object="${module}">
-			<input type="hidden" th:field="*{id}" /> 
-			
-				<div class="form-group"> 
-					<label for="code">Code</label>  
-					<input id="code" name="code" type="text" class="form-control" th:field="*{code}" />  
-				</div> 
-				<div class="form-group"> 
-					<label for="name">Name</label>  
-					<input id="name" name="name" type="text" class="form-control" th:field="*{name}" />  
-				</div> 
+		<form th:action="@{/os}"
+			th:method="@{${os.id == null} ? 'post' : 'put'}"
+			th:object="${os}">
+			<input type="hidden" th:field="*{id}" />
+
+			<div class="form-group">
+				<label for="name">	Funcionário </label> <input id="name" name="name"
+					type="text" class="form-control" th:field="*{funcionario}" />
+			</div>
+			<div class="form-group">
+				<label for="veiculo">Veiculo</label> <input id="veiculo" name="veiculo"
+					type="text" class="form-control" th:field="*{veiculo}" />
+			</div>
+						 
+			 <div class="form-group" th:object="${servico}">
+				 <select name="servico.id" class="form-control">
+					 <option value="">Selecione o Serviço</option>
+			 		 <option th:each="servico : ${servicos}" th:value="${servico.id}" th:text="${servico.nome}"></option>
+				</select>	
+			 </div>
 
 			<button type="submit" class="btn btn-success">Save</button>
-			<a th:href="@{/modules}" class="btn btn-default">Back</a>
+			<a th:href="@{/os}" class="btn btn-default">Back</a>
 		</form>
 	</div>
 </body>

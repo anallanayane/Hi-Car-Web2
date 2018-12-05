@@ -27,6 +27,9 @@ public class Servico implements Serializable {
 	@Column(name = "valor")
 	private Double valor;
 	
+	@Column(name = "status")
+	private String status = "Novo";
+	
 	/*@ManyToOne
 	@JoinColumn(name="module_id")
 	private Module module;
@@ -61,6 +64,14 @@ public class Servico implements Serializable {
 
 	public Double getValor() {
 		return valor;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

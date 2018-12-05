@@ -21,14 +21,16 @@
 				<tr>
 					<th>Nome</th> 
 					<th>Tempo Médio</th>
-					<th>Action</th>
+					<th>Valor</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="servico : ${listServico}">
 					<td th:text="${servico.nome}"></td> 
 					<td th:text="${servico.tempoMedio}"></td>
-					<td th:text="${servico.valor}"></td> 
+					<td th:text="${servico.valor}"></td>
+					<td th:text="${servico.status}"></td> 
 					<td>
 							<a th:href="@{/servico/{id}(id = ${servico.id})}" class="btn btn-primary" >Show</a> 
 					 		<a th:href="@{/servico/{id}/edit(id = ${servico.id})}" class="btn btn-info">Editar</a> 
