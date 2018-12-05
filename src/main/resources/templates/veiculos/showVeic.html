@@ -44,7 +44,15 @@
 
          <div class="w3-content w3-card" style="width:500px">
                 <ul style="list-style-type: none; padding: 25px">
-                    <div class="w3-display-container">
+           	        <div class="w3-display-container">
+           	        <div class="w3-dropdown-hover w3-display-topright">
+                       <a onclick="dropdown()" class="w3-button material-icons">keyboard_arrow_down</a>
+                       <div class="w3-dropdown-content w3-bar-block w3-border">
+                           <a th:href="@{/veiculo/cadVeiculo}" class="w3-bar-item w3-button">Histórico</a>
+                           <a th:href="@{/veiculo/cadVeiculo}" class="w3-bar-item w3-button">Agendar Serviço</a>
+                           <a th:href="@{/veiculo/cadVeiculo}" class="w3-bar-item w3-button">Serviços Ativos</a>
+                        </div>
+                     </div>
                      <div class="form-group w3-display-topmiddle w3-large w3-text-blue">
                       	<label for="modelo">Modelo: </label>  
 						<span th:text="${veiculo.modelo}"></span>
