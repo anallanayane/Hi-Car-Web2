@@ -11,7 +11,7 @@
 	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="_css/estilo.css" type="text/css"/>
+		<link rel="stylesheet" href="_css/estilo.css" th:href="@{/_css/estilo.css}" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	 	
 	 	<!-- Barra de Menu e Head-->
@@ -35,46 +35,11 @@
     <!--Meus Veiculos -->
     <body style="padding-top: 120px">
 
-        <div class="w3-container w3-blue w3-padding " style="margin-left: 400px; margin-right: 400px; height: auto; margin-top:3%">
-            <a th:href="@{/cadastro/show}" class="material-icons w3-text-white w3-padding" style="text-decoration: none; margin-top:1%">arrow_back</a><span class="w3-center w3-xlarge" style="margin-left:5%; margin-bottom:10%">Meus Veículos</span>
-            <a th:href="@{/cadastro/show}"class="material-icons w3-text-white w3-padding w3-right" style=" text-decoration: none; margin-top:1%">close</a></div>
-        		 
+        <div class="w3-container w3-padding " style="margin-left: 400px; margin-right: 400px; height: auto; margin-top:3%">
             <i class="material-icons w3-center w3-left" style="font-size:100px; margin-top:3%; margin-left:35%; margin-bottom:5%">directions_car</i>
              <h6 style="margin-left:50%; margin-top:5%">Adicionar novo veículo<a style="text-decoration: none; margin-top:3%" th:href="@{/veiculo/cadVeiculo}" class="material-icons w3-text-blue w3-xxlarg">add_circle</a></h6>
-
-            <div class="w3-content w3-card" style="width:500px">
-                <ul style="list-style-type: none; padding: 25px; margin-top:10%">
-                    <li>
-                        <div class="w3-display-container">
-                           <span class="w3-display-topmiddle w3-large w3-text-blue">Modelo</span><br>
-                           <span class="w3-display-right w3-small">Cor: ----</span><br>
-                           <span class="w3-display-bottomright w3-small">Ano: 0000</span><br>
-                           <span class="w3-display-bottomleft w3-small">Chassi: 0000000000</span>
-
-                           <div class="w3-dropdown-hover w3-display-topright">
-                               <a onclick="dropdown()" class="w3-button material-icons">keyboard_arrow_down</a>
-                               <div class="w3-dropdown-content w3-bar-block w3-border">
-                                   <a href="agendamento.html" class="w3-bar-item w3-button">Agendar Serviço</a>
-                                   <a href="servicosativos.html" class="w3-bar-item w3-button">Serviços Ativo</a>
-                                   <a href="historico.html" class="w3-bar-item w3-button">Histórico</a>
-                               </div>
-                           </div>
-                        </div>
-                    </li>
-                    <hr>
-                 </ul>
-            </div>
+           </div>
         </div>
 
-        
-        <!-- Footer -->
-        <footer class="w3-container w3-center w3-dark-grey" style="margin-top:5%">
-        <a href="https://www.facebook.com/" style="text-decoration: none" target="_blank" class="fa fa-facebook-square w3-text-color-white w3-xxlarge w3-padding"></a>
-        <a href="https://www.instagram.com/" style="text-decoration: none" target="_blank" class="fa fa-instagram w3-text-color-white w3-margin-top w3-xxlarge"></a>
-        <a href="https://www.linkedin.com/" style="text-decoration: none" target="_blank" class="fa fa-linkedin w3-text-color-white w3-xxlarge w3-padding"></a>
-
-        <a href="#"><i class="fa fa-chevron-circle-up w3-right w3-xxlarge" style="margin-top:4%; margin-right:2%;" alt="Início"></i></a>
-            <p class="w3-center w3-align">© 2018 Hi-Car All Rights Reserved</p><br/>
-        </footer>
     </body>
 </html>

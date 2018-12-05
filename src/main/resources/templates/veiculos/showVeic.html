@@ -1,48 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<meta name="description" content="" />
 		<meta name="author" content="" />
+	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="_css/estilo.css" th:href="@{/_css/estilo.css}" type="text/css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	 	
 		<title>Veículos Cadastrados</title>
+		
+		<!-- Barra de Menu e Head-->
+        <div class="w3-top">
+          <div class="w3-bar w3-light-blue" id="myNavbar">
+            <a href="/"><img class="w3-image w3-bar-item" 
+            src="/_imagens/logo.png" style="width:10%"></a>
+            <span class="w3-bar-item w3-text-white w3-xxlarge">Hi-Car</span>
+
+            <div class="w3-dropdown-hover w3-right w3-light-blue">
+                <i class="material-icons w3-xxlarge w3-padding-large w3-margin-top w3-text-white">person</i> 
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a th:href="@{/perfil}" class= "w3-bar-item w3-button w3-hover-blue">Perfil</a>
+                <a href="/" class="w3-bar-item w3-button w3-hover-blue">Sair</a>
+                </div> 
+            </div> 
+          </div>
+        </div>
 	</head>
-	<body>
-		<div layout:fragment="content">
-			<h1>Veículo Cadastrado</h1>
-			<hr />
+	
+	<!--Meus Veiculos -->
+    <body style="padding-top: 120px">
+
+        <div class="w3-container w3-padding " style="margin-left: 400px; margin-right: 400px; height: auto; margin-top:3%">
+            <i class="material-icons w3-center w3-left" style="font-size:100px; margin-top:3%; margin-left:20%; margin-bottom:5%">directions_car</i>
+             <h6 style="margin-left:50%; margin-top:5%">Adicionar novo veículo<a style="text-decoration: none; margin-top:3%" th:href="@{/veiculo/cadVeiculo}" class="material-icons w3-text-blue w3-xxlarg">add_circle</a></h6>
+           </div>
+        </div>
+
+         <div class="w3-content w3-card" style="width:500px">
+                <ul style="list-style-type: none; padding: 25px">
+                    <div class="w3-display-container">
+                     <div class="form-group w3-display-topmiddle w3-large w3-text-blue">
+                      	<label for="modelo">Modelo: </label>  
+						<span th:text="${veiculo.modelo}"></span>
+					 </div>
+					 <hr/>
+					 <div class="form-group">  
+						<label for="cor">Cor: </label>  
+						<span th:text="${veiculo.cor}"></span> 
+					</div>
+											     
+					<div class="form-group"> 
+						<label for="chassi">Chassi: </label>  
+						<span th:text="${veiculo.chassi}"></span> 
+					</div> 
+					
+					<div class="form-group"> 
+						<label for="placa">Placa: </label>  
+						<span th:text="${veiculo.placa}"></span> 
+					</div> 
+					
+					<div class="form-group"> 
+						<label for="ano">Ano: </label>  
+						<span th:text="${veiculo.ano}"></span> 
+					</div> 
+				</div>			
+			</div>
+		
+			<div class="w3-container w3-center">
+				<a class=" w3-center w3-button w3-margin-top w3-red w3-round-large" style="margin-top:35%" th:href="${veiculo.id +'/delete'}">Excluir</a>
+				<a class=" w3-center w3-button w3-margin-top w3-blue w3-round-large"  style="margin-top:35%" th:href="@{/veiculo/{id}/edit(id = ${veiculo.id})}">Editar</a>
+				<a class=" w3-center w3-button w3-margin-top w3-light-blue w3-round-large" style="margin-top:35%" margin-right:5% th:href="@{/veiculo/indexVeic}">Voltar</a> 
+			</div>
 			
-			<div class="form-group"> 
-				<label for="modelo">Modelo: </label>  
-				<span th:text="${veiculo.modelo}"></span> 
-			</div> 
-			
-			<div class="form-group"> 
-				<label for="cor">Cor: </label>  
-				<span th:text="${veiculo.cor}"></span> 
-			</div> 
-			
-			<div class="form-group"> 
-				<label for="chassi">Chassi: </label>  
-				<span th:text="${veiculo.chassi}"></span> 
-			</div> 
-			
-			<div class="form-group"> 
-				<label for="placa">Placa: </label>  
-				<span th:text="${veiculo.placa}"></span> 
-			</div> 
-			
-			<div class="form-group"> 
-				<label for="ano">Ano: </label>  
-				<span th:text="${veiculo.ano}"></span> 
-			</div> 
-			
-			<a th:href="@{/veiculo/indexVeic}" class="btn btn-primary" >Voltar</a> 
-			<a th:href="@{/veiculo/{id}/edit(id = ${veiculo.id})}" class="btn btn-info">Editar</a>
-			<a th:href="${veiculo.id +'/delete'}" class="btn btn-danger">Excluir</a>
-			
-		</div>
+		<!-- Footer -->
+        <footer class="w3-container w3-center w3-dark-grey" style="margin-top:5%">
+	        <a href="https://www.facebook.com/" style="text-decoration: none" target="_blank" class="fa fa-facebook-square w3-text-color-white w3-xxlarge w3-padding"></a>
+	        <a href="https://www.instagram.com/" style="text-decoration: none" target="_blank" class="fa fa-instagram w3-text-color-white w3-margin-top w3-xxlarge"></a>
+	        <a href="https://www.linkedin.com/" style="text-decoration: none" target="_blank" class="fa fa-linkedin w3-text-color-white w3-xxlarge w3-padding"></a>
+	        <a href="#"><i class="fa fa-chevron-circle-up w3-right w3-xxlarge" style="margin-top:4%; margin-right:2%;" alt="Início"></i></a>
+	        <p class="w3-center w3-align">© 2018 Hi-Car All Rights Reserved</p><br/>
+        </footer>
+        
 	</body>
 </html>
